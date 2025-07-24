@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 218f61eda0a8eb2458b791f8f17b8c9a
+guid: d03d76f485f256145a6f185b4cee9511
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3427114271967980436
-    second: Character_0
+      213: -3781893445567885664
+    second: idle_main_character_0
+  - first:
+      213: -4275229818560452491
+    second: idle_main_character_1
+  - first:
+      213: -8218100787493973709
+    second: idle_main_character_2
+  - first:
+      213: -6354958747714936661
+    second: idle_main_character_3
+  - first:
+      213: 2025011645027129973
+    second: idle_main_character_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_0
+      name: idle_main_character_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 43
-        width: 16
-        height: 26
+        x: 9
+        y: 4
+        width: 13
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 49ba251d54e8f8f20800000000000000
-      internalID: 3427114271967980436
+      spriteID: 0ae4c86d2f3048bc0800000000000000
+      internalID: -3781893445567885664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_main_character_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 4
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578eb8391255ba4c0800000000000000
+      internalID: -4275229818560452491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_main_character_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 331501900e073fd80800000000000000
+      internalID: -8218100787493973709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_main_character_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 4
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba0a03060b6aec7a0800000000000000
+      internalID: -6354958747714936661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_main_character_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 4
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a1fd7bc594a1c10800000000000000
+      internalID: 2025011645027129973
       vertices: []
       indices: 
       edges: []
@@ -138,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fa01959832340a54f81fa2c7032a638b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Character_0: 3427114271967980436
+      idle_main_character_0: -3781893445567885664
+      idle_main_character_1: -4275229818560452491
+      idle_main_character_2: -8218100787493973709
+      idle_main_character_3: -6354958747714936661
+      idle_main_character_4: 2025011645027129973
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,9 +6,27 @@
             "id": "816915b4-7c64-4ac7-b9fb-970752568863",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Move",
                     "type": "Button",
                     "id": "9c3d2c42-ce25-4172-b26a-2dc4d331af58",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "f2cbc748-20b8-4db7-9377-89b52a1a9caa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FireGoo",
+                    "type": "Button",
+                    "id": "14dbae8c-3cbc-49ee-b27e-f5d54b51e71c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -17,13 +35,57 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "531fed91-775c-4e6d-b8f8-304228a562d1",
-                    "path": "",
+                    "name": "1D Axis",
+                    "id": "c0117f85-e08f-422d-91a1-cb1363acf452",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "9b7905ab-c01f-41c2-8af9-3ff1369432a0",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "90ffc399-e380-40e9-b86c-c4c18465b4ab",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a4ca315c-ac7f-42e9-8888-8c5cb7221fc4",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "266a5e8a-c449-42be-9a18-5cb49847f29b",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireGoo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
