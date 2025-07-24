@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private bool hasJumped;
     private bool isGrounded;
     private bool hasFired;
+    private float currentTime;
 
     private string GROUND_TAG = "Ground";
 
@@ -43,6 +44,11 @@ public class Player : MonoBehaviour
         {
             isWalkingRight = true;
             isWalkingLeft = false;
+        }
+        else
+        {
+            isWalkingLeft = false;
+            isWalkingRight = false;
         }
 
             transform.position += moveDir * Time.deltaTime * moveSpeed;
@@ -81,7 +87,7 @@ public class Player : MonoBehaviour
 
     public bool IsWalkingRight()
     {
-        return isWalkingLeft;
+        return isWalkingRight;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -92,28 +98,31 @@ public class Player : MonoBehaviour
 
     private void PlayerFireProjectile()
     {
+        
+
 
         if (gameInput.IsFire() && !hasFired)
         {
 
             Instantiate(goo, gooBallPosition);
             hasFired = true;
+            currentTime = Time.time;
 
         }
-        else
+        else if (Time.time - currentTime > 3)
         {
-            FireCooldown();
+            hasFired = false;
         }
             
 
     }
 
-    IEnumerator FireCooldown()
-    {
+    //IEnumerator FireCooldown()
+    //{
 
-        yield return new WaitForSeconds(5);
-        hasFired = false;
+    //    yield return new WaitForSeconds(5);
+    //    hasFired = false;
 
-    }
+    //}
 
 }
