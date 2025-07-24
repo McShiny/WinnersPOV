@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,11 +16,13 @@ public class Player : MonoBehaviour
 
     private bool hasJumped;
     private bool isGrounded;
+    private bool hasFired;
 
     private string GROUND_TAG = "Ground";
 
 
     private bool isWalkingLeft;
+    private bool isWalkingRight;
 
     private void Awake()
     { 
@@ -34,9 +37,11 @@ public class Player : MonoBehaviour
         if (moveDir.x < 0)
         {
             isWalkingLeft = true;
+            isWalkingRight = false;
         }
-        else
+        else if (moveDir.x > 0)
         {
+            isWalkingRight = true;
             isWalkingLeft = false;
         }
 
@@ -74,6 +79,11 @@ public class Player : MonoBehaviour
         return isWalkingLeft;
     }
 
+    public bool IsWalkingRight()
+    {
+        return isWalkingLeft;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(GROUND_TAG))
@@ -83,12 +93,26 @@ public class Player : MonoBehaviour
     private void PlayerFireProjectile()
     {
 
-        if (gameInput.IsFire())
+        if (gameInput.IsFire() && !hasFired)
         {
 
             Instantiate(goo, gooBallPosition);
+            hasFired = true;
 
         }
+        else
+        {
+            FireCooldown();
+        }
+            
+
+    }
+
+    IEnumerator FireCooldown()
+    {
+
+        yield return new WaitForSeconds(5);
+        hasFired = false;
 
     }
 
