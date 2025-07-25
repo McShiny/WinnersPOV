@@ -41,23 +41,17 @@ public class Player : MonoBehaviour
         {
             isWalkingLeft = true;
             isWalkingRight = false;
+            lastDirectionRight = false;
         }
         else if (moveDir.x > 0)
         {
             isWalkingRight = true;
             isWalkingLeft = false;
+            lastDirectionRight = true;
         }
         else
         {
-            if (isWalkingLeft)
-            {
-                lastDirectionRight = false;
-            }
-            else
-            {
-                lastDirectionRight = true;
-            }
-                isWalkingLeft = false;
+            isWalkingLeft = false;
             isWalkingRight = false;
         }
 
@@ -100,11 +94,6 @@ public class Player : MonoBehaviour
         return isWalkingRight;
     }
 
-    public bool LastDirectionRight()
-    {
-        return lastDirectionRight;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(GROUND_TAG))
@@ -119,8 +108,16 @@ public class Player : MonoBehaviour
         if (gameInput.IsFire() && !hasFired)
         {
 
-            Instantiate(goo, gooBallPosition);
-            hasFired = true;
+            if(lastDirectionRight)
+            {
+                Instantiate(goo, gooBallPosition.position, gooBallPosition.rotation);
+            }
+            else
+            {
+                Instantiate(goo, gooBallPosition.position, Quaternion.Euler(0, 180, 0));
+            }
+
+                hasFired = true;
             currentTime = Time.time;
 
         }
@@ -132,9 +129,9 @@ public class Player : MonoBehaviour
 
     }
 
-    public float GetPlayerVelocity()
+    public bool HasJumped()
     {
-        return playerBody.linearVelocityX;
+        return hasJumped;
     }
 
 }

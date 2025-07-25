@@ -1,37 +1,31 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Goo : MonoBehaviour
 {
 
-    [SerializeField] private float bulletSpeed = 25f;
+    [SerializeField] private float bulletSpeed = 100f;
     [SerializeField] private Player player;
     [SerializeField] private Rigidbody2D gooBody;
 
-    private Vector3 fireDirection;
+    private string ENEMY_TAG = "Enemy";
 
     private void Start()
     {
 
-        if (player.IsWalkingLeft())
-        {
-            gooBody.linearVelocityX = bulletSpeed * Time.deltaTime * -1;
-        }
-        else if (player.IsWalkingRight())
-        {
-            gooBody.linearVelocityX = bulletSpeed * Time.deltaTime;
-        }
-        else
-        {
-            if (player.LastDirectionRight())
-            {
-                gooBody.linearVelocityX = bulletSpeed * Time.deltaTime;
-            }
-            else
-            {
-                gooBody.linearVelocityX = bulletSpeed * Time.deltaTime * -1;
-            }
-        }
+        gooBody.linearVelocityX = bulletSpeed * transform.right.x;
 
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag(ENEMY_TAG))
+        {
+            Destroy(gameObject);
+        }
+            
+
+    }
+
 }

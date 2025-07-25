@@ -86,7 +86,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0.1
+  m_GravityScale: 1.2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a450c89b5ef624a898c18a83677e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0.2
+  bulletSpeed: 20
   player: {fileID: 1161995965047138308, guid: 93cf69ec8263259418b24f863fa4fe97, type: 3}
   gooBody: {fileID: 5788256660304937294}
 --- !u!1 &7486900115961509053
