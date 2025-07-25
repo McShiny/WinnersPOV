@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6007344827178350691}
   - component: {fileID: 4909300757410629972}
+  - component: {fileID: 5788256660304937294}
   - component: {fileID: 2123485218285370530}
   m_Layer: 0
   m_Name: Goo
@@ -70,6 +71,33 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.0010505915}
   m_Radius: 0.1973533
+--- !u!50 &5788256660304937294
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983018668466418189}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0.1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &2123485218285370530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,8 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a450c89b5ef624a898c18a83677e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  bulletSpeed: 0.5
+  bulletSpeed: 0.2
+  player: {fileID: 1161995965047138308, guid: 93cf69ec8263259418b24f863fa4fe97, type: 3}
+  gooBody: {fileID: 5788256660304937294}
 --- !u!1 &7486900115961509053
 GameObject:
   m_ObjectHideFlags: 0

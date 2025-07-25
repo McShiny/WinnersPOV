@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float jumpForce = 20f;
+    [SerializeField] private float jumpForce = 15f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private Transform gooBallPosition;
@@ -18,12 +18,14 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private bool hasFired;
     private float currentTime;
+    private Vector3 moveDir;
 
     private string GROUND_TAG = "Ground";
 
 
     private bool isWalkingLeft;
     private bool isWalkingRight;
+    private bool lastDirectionRight;
 
     private void Awake()
     { 
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Vector2 inputVector = gameInput.GetMovementVector();
-        Vector3 moveDir = new Vector3(inputVector.x, 0f, 0f);
+        moveDir = new Vector3(inputVector.x, 0f, 0f);
 
         if (moveDir.x < 0)
         {
@@ -47,7 +49,15 @@ public class Player : MonoBehaviour
         }
         else
         {
-            isWalkingLeft = false;
+            if (isWalkingLeft)
+            {
+                lastDirectionRight = false;
+            }
+            else
+            {
+                lastDirectionRight = true;
+            }
+                isWalkingLeft = false;
             isWalkingRight = false;
         }
 
@@ -70,13 +80,13 @@ public class Player : MonoBehaviour
         if (hasJumped)
         {
             playerBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            playerBody.gravityScale = 2.5f;
+            playerBody.gravityScale = 3f;
             hasJumped = false;
         }
 
         if (playerBody.linearVelocityY <= 0)
         {
-            playerBody.gravityScale = 3.5f;
+            playerBody.gravityScale = 4.5f;
         }
     }
 
@@ -88,6 +98,11 @@ public class Player : MonoBehaviour
     public bool IsWalkingRight()
     {
         return isWalkingRight;
+    }
+
+    public bool LastDirectionRight()
+    {
+        return lastDirectionRight;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -109,7 +124,7 @@ public class Player : MonoBehaviour
             currentTime = Time.time;
 
         }
-        else if (Time.time - currentTime > 3)
+        else if (Time.time - currentTime > 0.75f)
         {
             hasFired = false;
         }
@@ -117,12 +132,9 @@ public class Player : MonoBehaviour
 
     }
 
-    //IEnumerator FireCooldown()
-    //{
-
-    //    yield return new WaitForSeconds(5);
-    //    hasFired = false;
-
-    //}
+    public float GetPlayerVelocity()
+    {
+        return playerBody.linearVelocityX;
+    }
 
 }

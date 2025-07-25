@@ -3,14 +3,35 @@ using UnityEngine;
 public class Goo : MonoBehaviour
 {
 
+    [SerializeField] private float bulletSpeed = 25f;
     [SerializeField] private Player player;
-    [SerializeField] private float bulletSpeed = 1f;
+    [SerializeField] private Rigidbody2D gooBody;
 
-    private void Update()
+    private Vector3 fireDirection;
+
+    private void Start()
     {
 
-        transform.position += new Vector3(bulletSpeed, 0f, 0f);
+        if (player.IsWalkingLeft())
+        {
+            gooBody.linearVelocityX = bulletSpeed * Time.deltaTime * -1;
+        }
+        else if (player.IsWalkingRight())
+        {
+            gooBody.linearVelocityX = bulletSpeed * Time.deltaTime;
+        }
+        else
+        {
+            if (player.LastDirectionRight())
+            {
+                gooBody.linearVelocityX = bulletSpeed * Time.deltaTime;
+            }
+            else
+            {
+                gooBody.linearVelocityX = bulletSpeed * Time.deltaTime * -1;
+            }
+        }
 
     }
-
+    
 }
