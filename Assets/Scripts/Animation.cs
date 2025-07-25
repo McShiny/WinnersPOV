@@ -12,6 +12,7 @@ public class Animation : MonoBehaviour
     private string WALK_ANIMATION = "isWalking";
     private string JUMP_ANIMATION = "isJump";
     private string LAND_ANIMATION = "doneJump";
+    private string SPIT_ANIMATION = "isSpit";
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class Animation : MonoBehaviour
 
         CharacterWalking();
         CharacterJump();
+        //CharacterSpit();
 
     }
 
@@ -66,4 +68,16 @@ public class Animation : MonoBehaviour
             playerAnim.SetBool(LAND_ANIMATION, false);
         }
     }
+
+    //private void CharacterSpit()
+    //{
+    //    if (player.HasFired())
+    //    {
+    //        playerAnim.SetBool(JUMP_ANIMATION, true);
+    //    }
+    //    else
+    //    {
+    //        playerAnim.SetBool(JUMP_ANIMATION, false);
+    //    }
+    //}
 }

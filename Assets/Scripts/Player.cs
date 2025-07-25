@@ -139,4 +139,9 @@ public class Player : MonoBehaviour
         return isGrounded;
     }
 
+    public bool HasFired()
+    {
+        return gameInput.IsFire();
+    }
+
 }
