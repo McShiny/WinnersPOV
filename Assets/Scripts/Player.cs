@@ -134,4 +134,9 @@ public class Player : MonoBehaviour
         return hasJumped;
     }
 
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
 }

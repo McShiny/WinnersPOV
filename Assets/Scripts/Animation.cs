@@ -11,6 +11,7 @@ public class Animation : MonoBehaviour
 
     private string WALK_ANIMATION = "isWalking";
     private string JUMP_ANIMATION = "isJump";
+    private string LAND_ANIMATION = "doneJump";
 
     private void Awake()
     {
@@ -55,9 +56,14 @@ public class Animation : MonoBehaviour
         {
             playerAnim.SetBool(JUMP_ANIMATION, true);
         }
-        else
+        else if (!player.IsGrounded())
         {
             playerAnim.SetBool(JUMP_ANIMATION, false);
+            playerAnim.SetBool(LAND_ANIMATION, true);
+        }
+        else
+        {
+            playerAnim.SetBool(LAND_ANIMATION, false);
         }
     }
 }
