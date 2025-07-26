@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   jumpForce: 15
-  gameInput: {fileID: 0}
+  gameInput: {fileID: 4767773428961965405, guid: 3f995f374ffd12243a098a5ee459a394, type: 3}
   playerBody: {fileID: 8195283309572416190}
   gooBallPosition: {fileID: 4264815638626429456}
   goo: {fileID: 6007344827178350691, guid: 6edb6ae66eac36a4c9863d674bb5a557, type: 3}

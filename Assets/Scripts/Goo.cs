@@ -1,14 +1,20 @@
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Goo : MonoBehaviour
 {
-
+    
     [SerializeField] private float bulletSpeed;
     [SerializeField] private Rigidbody2D gooBody;
-    [SerializeField] private Player player;
 
     private float gooDamage = 20f;
+    private Player player;
+
+    private void Awake()
+    {
+        player = FindAnyObjectByType<Player>();
+    }
 
     private void Start()
     {
@@ -21,8 +27,8 @@ public class Goo : MonoBehaviour
         else
         {
             gooBody.linearVelocityX = bulletSpeed * transform.right.x;
+
         }
-            
 
     }
 
