@@ -73,11 +73,11 @@ public class Animation : MonoBehaviour
     //{
     //    if (player.HasFired())
     //    {
-    //        playerAnim.SetBool(JUMP_ANIMATION, true);
+    //        playerAnim.SetBool(SPIT_ANIMATION, true);
     //    }
     //    else
     //    {
-    //        playerAnim.SetBool(JUMP_ANIMATION, false);
+    //        playerAnim.SetBool(SPIT_ANIMATION, false);
     //    }
     //}
 }

@@ -5,7 +5,6 @@ public class Goo : MonoBehaviour
 {
 
     [SerializeField] private float bulletSpeed = 100f;
-    [SerializeField] private Player player;
     [SerializeField] private Rigidbody2D gooBody;
 
     private float gooDamage = 20f;
@@ -24,11 +23,12 @@ public class Goo : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(gooDamage);
+            Destroy(gameObject);
         }
+
         
-        Destroy(gameObject);
-        
-            
+
+
 
     }
 
