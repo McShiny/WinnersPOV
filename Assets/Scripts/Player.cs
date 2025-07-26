@@ -235,4 +235,9 @@ public class Player : MonoBehaviour
         return isShotgun;
     }
 
+    public int getHealth()
+    {
+        return (int)health;
+    }
+
 }

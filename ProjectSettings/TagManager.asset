@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Enemy
   - ShotgunUpgrade
+  - Restart
+  - Home
   layers:
   - Default
   - TransparentFX
