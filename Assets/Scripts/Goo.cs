@@ -6,13 +6,23 @@ public class Goo : MonoBehaviour
 
     [SerializeField] private float bulletSpeed = 100f;
     [SerializeField] private Rigidbody2D gooBody;
+    [SerializeField] private Player player;
 
     private float gooDamage = 20f;
 
     private void Start()
     {
 
-        gooBody.linearVelocityX = bulletSpeed * transform.right.x;
+        if (player.IsShotgun())
+        {
+            gooBody.linearVelocityX = bulletSpeed * Random.Range(1f, 1.5f) * transform.right.x;
+            gooBody.linearVelocityY = Random.Range(0f, 1f) * transform.right.x;
+        }
+        else
+        {
+            gooBody.linearVelocityX = bulletSpeed * transform.right.x;
+        }
+            
 
     }
 
@@ -25,10 +35,6 @@ public class Goo : MonoBehaviour
             enemy.TakeDamage(gooDamage);
             Destroy(gameObject);
         }
-
-        
-
-
 
     }
 

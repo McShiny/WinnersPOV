@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private Transform gooBallPosition;
     [SerializeField] private Transform goo;
+    [SerializeField] private Animator playerAnim;
     //[SerializeField] GameObject deathEffect;
+
 
 
 
@@ -23,13 +25,18 @@ public class Player : MonoBehaviour
     private Vector3 moveDir;
     private float gooCooldown = 0.75f;
     private float health = 100f;
+    private bool hasDied;
+    private bool isShotgun;
 
     private string GROUND_TAG = "Ground";
-
+    private string DAMAGE_ANIMATION = "isHit";
+    private string SHOTGUN_TAG = "ShotgunUpgrade";
 
     private bool isWalkingLeft;
     private bool isWalkingRight;
     private bool lastDirectionRight;
+
+    
 
     private void Awake()
     { 
@@ -98,27 +105,60 @@ public class Player : MonoBehaviour
         return isWalkingRight;
     }
 
+    public bool HasDied()
+    {
+        return hasDied;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(GROUND_TAG))
             isGrounded = true;
     }
 
+    private void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.CompareTag(SHOTGUN_TAG))
+        {
+            isShotgun = true;
+        }
+
+    }
+
+
     private void PlayerFireProjectile()
     {
         
-
 
         if (gameInput.IsFire() && !hasFired)
         {
 
             if(lastDirectionRight)
             {
-                Instantiate(goo, gooBallPosition.position, gooBallPosition.rotation);
+                if (isShotgun)
+                {
+                    Instantiate(goo, gooBallPosition.position + new Vector3(0f, 0.66f, 0f), gooBallPosition.rotation);
+                    Instantiate(goo, gooBallPosition.position, gooBallPosition.rotation);
+                    Instantiate(goo, gooBallPosition.position - new Vector3(0f, 0.66f, 0f), gooBallPosition.rotation);
+                }
+                else
+                {
+                    Instantiate(goo, gooBallPosition.position, gooBallPosition.rotation);
+                }   
             }
             else
             {
-                Instantiate(goo, gooBallPosition.position, Quaternion.Euler(0, 180, 0));
+                if (isShotgun)
+                {
+                    Instantiate(goo, gooBallPosition.position + new Vector3(0f, 0.66f, 0f), Quaternion.Euler(0, 180, 0));
+                    Instantiate(goo, gooBallPosition.position, Quaternion.Euler(0, 180, 0));
+                    Instantiate(goo, gooBallPosition.position - new Vector3(0f, 0.66f, 0f), Quaternion.Euler(0, 180, 0));
+                }
+                else
+                {
+                    Instantiate(goo, gooBallPosition.position, Quaternion.Euler(0, 180, 0));
+                }
+                    
             }
 
                 hasFired = true;
@@ -151,6 +191,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        DamageAnimation();
 
         if (health <= 0)
         {
@@ -160,8 +201,38 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        hasDied = true;
+    }
+
+    public void DamageAnimation()
+    {
+
+        playerAnim.SetBool(DAMAGE_ANIMATION, true);
+        StartCoroutine(DamageTimer());
+
+    }
+
+    IEnumerator DamageTimer()
+    {
+
+        while (true)
+        {
+            yield return new WaitForSeconds(0.25f);
+
+            playerAnim.SetBool(DAMAGE_ANIMATION, false);
+        }
+
+    }
+
+    public void PlayerDie()
+    {
         Destroy(gameObject);
+
+    }
+
+    public bool IsShotgun()
+    {
+        return isShotgun;
     }
 
 }

@@ -7,6 +7,8 @@ public class EnemyMoveAnimation : MonoBehaviour
     [SerializeField] private EnemyMove enemyMove;
     [SerializeField] private Enemy enemy;
     [SerializeField] private Transform shootPosition;
+    [SerializeField] private float shootHeight;
+    [SerializeField] private float shootPosDistance;
 
     private SpriteRenderer renderEnemy;
     private Animator enemyAnim;
@@ -35,13 +37,13 @@ public class EnemyMoveAnimation : MonoBehaviour
         if (enemyMove.IsMovingLeft())
         {
             renderEnemy.flipX = true;
-            shootPosition.transform.position = enemy.transform.position - new Vector3(0.6f, -1f, 0f);
+            shootPosition.transform.position = enemy.transform.position - new Vector3(shootPosDistance, -shootHeight, 0f);
 
         }
         else if (enemyMove.IsMovingRight())
         {
             renderEnemy.flipX = false;
-            shootPosition.transform.position = enemy.transform.position + new Vector3(0.6f, 1f, 0f);
+            shootPosition.transform.position = enemy.transform.position + new Vector3(shootPosDistance, shootHeight, 0f);
 
         }
     }

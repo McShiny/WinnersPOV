@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Animation : MonoBehaviour
@@ -13,6 +14,7 @@ public class Animation : MonoBehaviour
     private string JUMP_ANIMATION = "isJump";
     private string LAND_ANIMATION = "doneJump";
     private string SPIT_ANIMATION = "isSpit";
+    private string DEATH_ANIMATION = "isDead";
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class Animation : MonoBehaviour
 
         CharacterWalking();
         CharacterJump();
+        DeathAnimation();
         //CharacterSpit();
 
     }
@@ -79,5 +82,27 @@ public class Animation : MonoBehaviour
     //    {
     //        playerAnim.SetBool(SPIT_ANIMATION, false);
     //    }
-    //}
+
+    private void DeathAnimation()
+    {
+        if (player.HasDied())
+        {
+            playerAnim.SetBool(DEATH_ANIMATION, true);
+            StartCoroutine(DeathTimer());
+        }
+    }
+
+    IEnumerator DeathTimer()
+    {
+
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            player.PlayerDie();
+
+        }
+
+    }
+
 }

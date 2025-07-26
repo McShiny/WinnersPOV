@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Vial : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
 
-    [SerializeField] private float bulletSpeed = 100f;
+    [SerializeField] private float bulletSpeed;
     [SerializeField] private Rigidbody2D vialBody;
+    [SerializeField] private float vialDamage;
 
-    private float vialDamage = 25f;
 
     private void Start()
     {

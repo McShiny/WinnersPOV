@@ -126,6 +126,8 @@ MonoBehaviour:
   enemyMove: {fileID: 7542132606004314053}
   enemy: {fileID: 1540614480576626139}
   shootPosition: {fileID: 8827840889741110022}
+  shootHeight: 0.75
+  shootPosDistance: 0.6
 --- !u!1 &2069122359893639421
 GameObject:
   m_ObjectHideFlags: 0
