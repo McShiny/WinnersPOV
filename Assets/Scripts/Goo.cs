@@ -4,7 +4,7 @@ using UnityEngine;
 public class Goo : MonoBehaviour
 {
 
-    [SerializeField] private float bulletSpeed = 100f;
+    [SerializeField] private float bulletSpeed;
     [SerializeField] private Rigidbody2D gooBody;
     [SerializeField] private Player player;
 
