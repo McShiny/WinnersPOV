@@ -8,7 +8,7 @@ public class Goo : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Rigidbody2D gooBody;
 
-    private string ENEMY_TAG = "Enemy";
+    private float gooDamage = 20f;
 
     private void Start()
     {
@@ -20,10 +20,14 @@ public class Goo : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag(ENEMY_TAG))
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            Destroy(gameObject);
+            enemy.TakeDamage(gooDamage);
         }
+        
+        Destroy(gameObject);
+        
             
 
     }
