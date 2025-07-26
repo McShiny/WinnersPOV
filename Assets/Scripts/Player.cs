@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private Transform gooBallPosition;
     [SerializeField] private Transform goo;
+    //[SerializeField] GameObject deathEffect;
+
 
 
 
@@ -19,6 +21,8 @@ public class Player : MonoBehaviour
     private bool hasFired;
     private float currentTime;
     private Vector3 moveDir;
+    private float gooCooldown = 0.75f;
+    private float health = 100f;
 
     private string GROUND_TAG = "Ground";
 
@@ -55,7 +59,7 @@ public class Player : MonoBehaviour
             isWalkingRight = false;
         }
 
-            transform.position += moveDir * Time.deltaTime * moveSpeed;
+        transform.position += moveDir * Time.deltaTime * moveSpeed;
 
         if (gameInput.GetJump() && isGrounded)
         {
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
             currentTime = Time.time;
 
         }
-        else if (Time.time - currentTime > 0.75f)
+        else if (Time.time - currentTime > gooCooldown)
         {
             hasFired = false;
         }
@@ -142,6 +146,22 @@ public class Player : MonoBehaviour
     public bool HasFired()
     {
         return gameInput.IsFire();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 }
