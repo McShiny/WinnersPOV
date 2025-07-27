@@ -2531,6 +2531,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 757478283117135686, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5242856455246005002, guid: 6a05f2a7e26b2474eb1844422e95b7e5, type: 3}
+    - target: {fileID: 3828498553682559783, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -205270267638800340, guid: 62b96d90958c16a4e8851122ac6b3bea, type: 3}
+    - target: {fileID: 4008139517196310086, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8763114466338043787, guid: 1d2cd2e618193be4e8be3e18eccb21de, type: 3}
     - target: {fileID: 4099821804761836714, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2610,6 +2622,26 @@ PrefabInstance:
     - target: {fileID: 4099821804761836714, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003468376955434002, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003468376955434002, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717561859737141232, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717561859737141232, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717561859737141232, guid: b82fe1a0b9730a5439f518a35985e69b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
