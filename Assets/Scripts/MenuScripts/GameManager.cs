@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject character;
+    [SerializeField] private Transform spawnPoint;
 
     public static GameManager instance;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Gameplay")
         {
-            Instantiate(character);
+            Instantiate(character, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
     }
 

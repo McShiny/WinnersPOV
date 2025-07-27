@@ -10,11 +10,12 @@ public class HealthUpdater : MonoBehaviour
 
     private void Awake()
     {
-        player = FindAnyObjectByType<Player>();
+        
     }
 
     private void Start()
     {
+        player = FindAnyObjectByType<Player>();
         health.text = maxHealth.ToString();
     }
 
