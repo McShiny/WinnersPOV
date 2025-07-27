@@ -7,9 +7,9 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private float rightPos;
     [SerializeField] private float leftPos;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private bool movingRight;
 
     private bool isRight;
-    private bool movingRight = true;
     private bool movingLeft;
 
     private void Update()
