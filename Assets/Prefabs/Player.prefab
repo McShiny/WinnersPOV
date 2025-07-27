@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpForce: 15
+  jumpForce: 17
   playerBody: {fileID: 8195283309572416190}
   gooBallPosition: {fileID: 4264815638626429456}
   goo: {fileID: 6007344827178350691, guid: 6edb6ae66eac36a4c9863d674bb5a557, type: 3}
