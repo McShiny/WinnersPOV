@@ -15,7 +15,7 @@ public class HealthUpdater : MonoBehaviour
 
     private void Start()
     {
-        
+        health.text = maxHealth.ToString();
     }
 
     private void Update()

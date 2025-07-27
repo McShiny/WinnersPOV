@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 1540614480576626139}
   - component: {fileID: 2686416712993552925}
   - component: {fileID: 7542132606004314053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScientistMoving
   m_TagString: Enemy
   m_Icon: {fileID: 0}

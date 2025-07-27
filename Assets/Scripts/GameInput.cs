@@ -35,4 +35,9 @@ public class GameInput : MonoBehaviour
 
     }
 
+    public void OnDisable()
+    {
+        playerInputActions.Player.Disable();
+    }
+
 }

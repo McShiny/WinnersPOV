@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9067725788363067199}
   - component: {fileID: 1411137231612056782}
   - component: {fileID: 3370498210791188179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SecurityWalking
   m_TagString: Untagged
   m_Icon: {fileID: 0}

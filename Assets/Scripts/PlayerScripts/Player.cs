@@ -7,16 +7,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 15f;
-    [SerializeField] private GameInput gameInput;
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private Transform gooBallPosition;
     [SerializeField] private Transform goo;
     [SerializeField] private Animator playerAnim;
-    //[SerializeField] GameObject deathEffect;
 
-
-
-
+    private GameInput gameInput;
 
     private bool hasJumped;
     private bool isGrounded;
@@ -40,7 +36,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     { 
-
+        gameInput = FindAnyObjectByType<GameInput>();
     }
 
     private void Update()
@@ -75,7 +71,6 @@ public class Player : MonoBehaviour
         }
 
         PlayerFireProjectile();
-
 
     }
 

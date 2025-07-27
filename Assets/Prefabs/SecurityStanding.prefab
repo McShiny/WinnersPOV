@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1291065701999011549}
   - component: {fileID: 3649497959666601277}
   - component: {fileID: 3537272946599461489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SecurityStanding
   m_TagString: Untagged
   m_Icon: {fileID: 0}

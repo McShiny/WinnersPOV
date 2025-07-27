@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Animation : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour
 {
 
     [SerializeField] private Player player;
