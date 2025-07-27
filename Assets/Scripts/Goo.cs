@@ -11,6 +11,9 @@ public class Goo : MonoBehaviour
     private float gooDamage = 20f;
     private Player player;
 
+    private string GROUND_TAG = "Ground";
+    private string WALL_TAG = "Wall";
+
     private void Awake()
     {
         player = FindAnyObjectByType<Player>();
@@ -41,6 +44,9 @@ public class Goo : MonoBehaviour
             enemy.TakeDamage(gooDamage);
             Destroy(gameObject);
         }
+
+        if(collision.gameObject.CompareTag(GROUND_TAG) || collision.gameObject.CompareTag(WALL_TAG))
+                Destroy(gameObject);
 
     }
 

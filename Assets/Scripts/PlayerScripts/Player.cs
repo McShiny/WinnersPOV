@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
 
         transform.position += moveDir * Time.deltaTime * moveSpeed;
 
-        if (gameInput.GetJump() && isGrounded)
+        if (gameInput.GetJump() && isGrounded && playerBody.linearVelocityY <= 0)
         {
             hasJumped = true;
             isGrounded = false;
@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
         if (playerBody.linearVelocityY <= 0)
         {
             playerBody.gravityScale = 4.5f;
+            
         }
     }
 

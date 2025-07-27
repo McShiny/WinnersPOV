@@ -9,6 +9,7 @@ TagManager:
   - ShotgunUpgrade
   - Restart
   - Home
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody2D vialBody;
     [SerializeField] private float vialDamage;
 
+    private string GROUND_TAG = "Ground";
+    private string WALL_TAG = "Wall";
+
 
     private void Start()
     {
@@ -24,6 +27,9 @@ public class Projectile : MonoBehaviour
             player.TakeDamage(vialDamage);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag(GROUND_TAG) || collision.gameObject.CompareTag(WALL_TAG))
+            Destroy(gameObject);
 
     }
 
