@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -20,13 +21,14 @@ public class Player : MonoBehaviour
     private float currentTime;
     private Vector3 moveDir;
     private float gooCooldown = 0.75f;
-    private float health = 100f;
+    private float health = 150f;
     private bool hasDied;
     private bool isShotgun;
 
     private string GROUND_TAG = "Ground";
     private string DAMAGE_ANIMATION = "isHit";
     private string SHOTGUN_TAG = "ShotgunUpgrade";
+    private string END_TAG = "EndGame";
 
     private bool isWalkingLeft;
     private bool isWalkingRight;
@@ -119,6 +121,11 @@ public class Player : MonoBehaviour
             isShotgun = true;
         }
 
+        if (trigger.gameObject.CompareTag(END_TAG))
+        {
+            WinGame();
+        }
+
     }
 
 
@@ -186,7 +193,19 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        if (health - damage < 0)
+        {
+            health = 0;
+        }
+        else if(health - damage > 150)
+        {
+            health = 150;
+        }
+        else
+        {
+            health -= damage;
+        }
+            
         DamageAnimation();
 
         if (health <= 0)
@@ -234,6 +253,11 @@ public class Player : MonoBehaviour
     public int getHealth()
     {
         return (int)health;
+    }
+
+    public void WinGame()
+    {
+        SceneManager.LoadScene("WinScreen");
     }
 
 }

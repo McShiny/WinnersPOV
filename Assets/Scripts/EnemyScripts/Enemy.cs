@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         DamageAnimation();
 
         if (health <= 0)
-        {
+        { 
             Die();
         }
     }

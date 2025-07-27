@@ -12,6 +12,8 @@ public class EnemyMoveAnimation : MonoBehaviour
 
     private SpriteRenderer renderEnemy;
     private Animator enemyAnim;
+    private Player player;
+
 
     private string DEATH_ANIMATION = "isDead";
 
@@ -21,6 +23,11 @@ public class EnemyMoveAnimation : MonoBehaviour
         renderEnemy = GetComponent<SpriteRenderer>();
         enemyAnim = GetComponent<Animator>();
 
+    }
+
+    private void Start()
+    {
+        player = FindAnyObjectByType<Player>();
     }
 
     private void Update()
@@ -64,6 +71,7 @@ public class EnemyMoveAnimation : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
 
+            player.TakeDamage(-10);
             enemy.EnemyDie();
 
         }

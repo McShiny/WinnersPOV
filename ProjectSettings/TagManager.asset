@@ -10,6 +10,7 @@ TagManager:
   - Restart
   - Home
   - Wall
+  - EndGame
   layers:
   - Default
   - TransparentFX

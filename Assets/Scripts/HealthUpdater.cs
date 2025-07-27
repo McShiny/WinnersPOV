@@ -6,7 +6,7 @@ public class HealthUpdater : MonoBehaviour
 
     public TextMeshProUGUI health;
     private Player player;
-    private int maxHealth = 100;
+    private int maxHealth = 150;
 
     private void Awake()
     {
